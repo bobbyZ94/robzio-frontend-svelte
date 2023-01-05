@@ -7,4 +7,13 @@
     font-family: "Montserrat";
     src: local("Montserrat"), url("/fonts/Montserrat-Regular.woff") format(woff);
   }
+
+  circle,
+  rect,
+  line {
+    stroke: #dc2626;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    fill: transparent;
+  }
 }

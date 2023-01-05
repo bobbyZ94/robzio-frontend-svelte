@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="h-screen flex flex-col items-center justify-between bg-zinc-800 text-gray-100 font-montserrat"
+	class="antialiased scroll-smooth h-screen flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat"
 >
 	<nav class="bg-red-500">
 		<a href="/">About</a>
