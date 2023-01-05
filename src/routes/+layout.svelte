@@ -3,9 +3,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<div
-	class="antialiased scroll-smooth h-full flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat"
->
+<div class="w-full h-full flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat">
 	<!-- <nav class="bg-red-500">
 		<a href="/">About</a>
 		<a href="/projects">Projects</a>
