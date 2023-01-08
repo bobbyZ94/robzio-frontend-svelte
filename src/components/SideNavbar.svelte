@@ -5,7 +5,7 @@
 <div class="flex flex-col items-center gap-10 text-xs">
 	<a href="/#about">
 		<div
-			transition:scale={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
+			transition:scale|local={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
 			class="hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 		>
 			About
@@ -13,7 +13,7 @@
 	</a>
 	<a href="/#projects">
 		<div
-			transition:scale={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
+			transition:scale|local={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
 			class="hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 		>
 			Projects
@@ -22,7 +22,7 @@
 
 	<a href="/#blog">
 		<div
-			transition:scale={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
+			transition:scale|local={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
 			class="hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 		>
 			Blog
@@ -30,7 +30,7 @@
 	</a>
 	<a href="/#contact">
 		<div
-			transition:scale={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
+			transition:scale|local={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
 			class="hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 		>
 			Contact

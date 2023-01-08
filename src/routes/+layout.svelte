@@ -1,19 +1,24 @@
 <script>
 	import '../app.css';
-	const year = new Date().getFullYear();
+	import SideNavbar from '../components/SideNavbar.svelte';
+	import Footer from '../components/Footer.svelte';
+	import { showNavbar } from '../lib/stores';
+	let showNavbarValue;
+	showNavbar.subscribe((value) => {
+		showNavbarValue = value;
+	});
 </script>
 
-<div class="w-full h-full flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat">
-	<!-- <nav class="bg-red-500">
-		<a href="/">About</a>
-		<a href="/projects">Projects</a>
-		<a href="/blog">Blog</a>
-		<a href="/contact">Contact</a>
-	</nav> -->
-	<slot />
-	<footer>
-		<a href="/impressum">Impressum</a>
-		<a href="/legal">Legal</a>
-		<div>Robzio © {year}</div>
-	</footer>
+<div
+	class="w-full min-h-screen flex flex-col items-center  bg-zinc-900 text-gray-50 font-montserrat"
+>
+	{#if showNavbarValue}
+		<div class="fixed top-[30%] right-20">
+			<SideNavbar />
+		</div>
+	{/if}
+	<div class="flex flex-grow h-full w-full">
+		<slot />
+	</div>
+	<Footer />
 </div>
