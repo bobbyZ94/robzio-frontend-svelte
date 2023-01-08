@@ -15,5 +15,5 @@
 	<div id="about"><About aboutPageData={data.aboutPageData} /></div>
 	<div id="projects"><Projects /></div>
 	<div id="blog"><Blog /></div>
-	<div id="contact"><Contact /></div>
+	<div id="contact"><Contact contactPageData={data.contactPageData} /></div>
 </div>
