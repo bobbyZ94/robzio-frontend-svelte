@@ -11,8 +11,6 @@
   circle,
   rect,
   line {
-    stroke: #dc2626;
-    stroke-width: 1px;
     stroke-linecap: round;
     fill: transparent;
   }

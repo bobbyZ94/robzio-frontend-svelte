@@ -16,8 +16,24 @@ export async function load({ fetch }) {
       authorization: `Bearer ${env.STRAPI_READ_KEY}`
     }
   })
+  const blogPageData = await fetch('http://127.0.0.1:1337/api/blogs', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${env.STRAPI_READ_KEY}`
+    }
+  })
+  const projectsPageData = await fetch('http://127.0.0.1:1337/api/projects', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${env.STRAPI_READ_KEY}`
+    }
+  })
   return {
     aboutPageData: aboutPageData.json(),
-    contactPageData: contactPageData.json()
+    contactPageData: contactPageData.json(),
+    blogsPageData: blogPageData.json(),
+    projectsPageData: projectsPageData.json()
   };
 }

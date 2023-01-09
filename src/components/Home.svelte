@@ -3,14 +3,13 @@
 	import { quintInOut } from 'svelte/easing';
 	import { fade, draw, scale } from 'svelte/transition';
 	import Typewriter from 'svelte-typewriter';
-	import { showNavbar } from '../lib/stores';
+	import { showAboutText, showNavbar } from '../lib/stores';
 	// Enables transistion at page load
 	import { onMount } from 'svelte';
 	let visible = false;
 	onMount(() => {
 		visible = true;
 	});
-	$: showNavbar.subscribe((value) => console.log(value));
 </script>
 
 <div class="tracking-wider flex items-center justify-center h-screen min-h-screen">
@@ -76,8 +75,14 @@
 				<div
 					class="-translate-x-10"
 					use:viewport
-					on:enterViewport={() => showNavbar.set(false)}
-					on:exitViewport={() => showNavbar.set(true)}
+					on:enterViewport={() => {
+						showNavbar.set(false);
+						showAboutText.set(false);
+					}}
+					on:exitViewport={() => {
+						showNavbar.set(true);
+						showAboutText.set(true);
+					}}
 				>
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}

@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  darkMode: 'class',
+  content: [
+    './src/**/*.{html,js,svelte,ts}', 
+  ],
   important: true,
   theme: {
     extend: {
@@ -9,5 +12,8 @@ module.exports = {
       }
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],
+  plugins: [
+    require('@tailwindcss/typography'), 
+    require('tailwind-scrollbar'),
+  ],
 }
