@@ -4,52 +4,45 @@
 	import Projects from '../components/Projects.svelte';
 	import Blog from '../components/Blog.svelte';
 	import Contact from '../components/Contact.svelte';
-	import { fade } from 'svelte/transition';
-	import viewport from '../lib/useViewportAction';
-	import { showAboutText, showProjectsText, showBlogText, showContactText } from '../lib/stores';
-	let showAboutTextValue;
-	showAboutText.subscribe((value) => {
-		showAboutTextValue = value;
-	});
-	let showProjectsTextValue;
-	showProjectsText.subscribe((value) => {
-		showProjectsTextValue = value;
-	});
-	let showBlogTextValue;
-	showBlogText.subscribe((value) => {
-		showBlogTextValue = value;
-	});
-	let showContactTextValue;
-	showContactText.subscribe((value) => {
-		showContactTextValue = value;
-	});
+	import { fly } from 'svelte/transition';
+	import { inview } from 'svelte-inview';
+	import { showNavbar } from '../lib/stores';
 	/** @type {import('./$types').PageData} */
 	export let data;
-	$: console.log(showAboutTextValue);
+	let aboutIsInView, projectsIsInView, blogIsInView, contactIsInView;
+	const options = {
+		rootMargin: '-50%'
+	};
 </script>
 
 <div class="w-full h-full">
-	<div id="home">
+	<div
+		id="home"
+		use:inview={options}
+		on:change={(event) => {
+			const { inView } = event.detail;
+			showNavbar.set(!inView);
+		}}
+	>
 		<Home />
 	</div>
 
 	<div
 		id="about"
 		class="relative"
-		use:viewport
-		on:enterViewport={() => {
-			showAboutText.set(true);
-		}}
-		on:exitViewport={() => {
-			showProjectsText.set(true);
+		use:inview={options}
+		on:change={(event) => {
+			const { inView } = event.detail;
+			aboutIsInView = inView;
 		}}
 	>
-		{#if showAboutTextValue}
+		{#if aboutIsInView}
 			<div
-				transition:fade|local={{ duration: 1000 }}
-				class="fixed text-[25rem] top-[20%] left-[10%] z-0"
+				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
+				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
+				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
 			>
-				<div class="opacity-40">ABOUT</div>
+				<div class="opacity-40 text-[20vw]">ABOUT</div>
 			</div>
 		{/if}
 		<About aboutPageData={data.aboutPageData} />
@@ -58,26 +51,63 @@
 	<div
 		id="projects"
 		class="relative"
-		use:viewport
-		on:enterViewport={() => {
-			showAboutText.set(false);
-		}}
-		on:exitViewport={() => {
-			showProjectsText.set(false);
+		use:inview={options}
+		on:change={(event) => {
+			const { inView } = event.detail;
+			projectsIsInView = inView;
 		}}
 	>
-		{#if showProjectsTextValue}
+		{#if projectsIsInView}
 			<div
-				transition:fade|local={{ duration: 1000 }}
-				class="fixed text-[25rem] top-[20%] left-[10%] z-0"
+				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
+				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
+				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
 			>
-				<div class="opacity-40">PROJECTS</div>
+				<div class="opacity-40 text-[15vw]">PROJECTS</div>
 			</div>
 		{/if}
 		<Projects projectsPageData={data.projectsPageData} />
 	</div>
 
-	<div id="blog"><Blog blogPageData={data.blogPageData} /></div>
+	<div
+		id="blog"
+		class="relative"
+		use:inview={options}
+		on:change={(event) => {
+			const { inView } = event.detail;
+			blogIsInView = inView;
+		}}
+	>
+		{#if blogIsInView}
+			<div
+				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
+				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
+				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+			>
+				<div class="opacity-40 text-[20vw]">BLOG</div>
+			</div>
+		{/if}
+		<Blog blogPageData={data.blogPageData} />
+	</div>
 
-	<div id="contact"><Contact contactPageData={data.contactPageData} /></div>
+	<div
+		id="contact"
+		class="relative"
+		use:inview={options}
+		on:change={(event) => {
+			const { inView } = event.detail;
+			contactIsInView = inView;
+		}}
+	>
+		{#if contactIsInView}
+			<div
+				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
+				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
+				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+			>
+				<div class="opacity-40 text-[16vw] ">CONTACT</div>
+			</div>
+		{/if}
+		<Contact contactPageData={data.contactPageData} />
+	</div>
 </div>

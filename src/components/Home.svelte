@@ -1,9 +1,7 @@
 <script>
-	import viewport from '../lib/useViewportAction';
 	import { quintInOut } from 'svelte/easing';
 	import { fade, draw, scale } from 'svelte/transition';
 	import Typewriter from 'svelte-typewriter';
-	import { showAboutText, showNavbar } from '../lib/stores';
 	// Enables transistion at page load
 	import { onMount } from 'svelte';
 	let visible = false;
@@ -72,18 +70,7 @@
 				</div>
 			</a>
 			<a href="/#contact">
-				<div
-					class="-translate-x-10"
-					use:viewport
-					on:enterViewport={() => {
-						showNavbar.set(false);
-						showAboutText.set(false);
-					}}
-					on:exitViewport={() => {
-						showNavbar.set(true);
-						showAboutText.set(true);
-					}}
-				>
+				<div class="-translate-x-10">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 						class="hover:scale-105 ease-in-out duration-300-24 h-24 border-[1px] border-gray-50 rounded-full flex items-center justify-center"

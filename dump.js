@@ -14,3 +14,14 @@
 				</svg>
 			</Motion>
 		</div>
+
+
+use:viewport
+					on:enterViewport={() => {
+						showNavbar.set(false);
+						showAboutText.set(false);
+					}}
+					on:exitViewport={() => {
+						showNavbar.set(true);
+						showAboutText.set(true);
+					}}
