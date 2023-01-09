@@ -3,7 +3,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<footer class="flex flex-col items-center gap-5 my-10">
+<footer class="flex flex-col items-center gap-5 my-10 z-20">
 	<a href={`mailto:info@robzio.com`}>
 		<span><Email class="inline mr-2" />info@robzio.com</span>
 	</a>

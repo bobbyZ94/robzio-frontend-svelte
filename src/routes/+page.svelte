@@ -40,7 +40,7 @@
 			<div
 				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
-				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
 				<div class="opacity-40 text-[20vw]">ABOUT</div>
 			</div>
@@ -61,7 +61,7 @@
 			<div
 				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
-				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
 				<div class="opacity-40 text-[15vw]">PROJECTS</div>
 			</div>
@@ -82,7 +82,7 @@
 			<div
 				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
-				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
 				<div class="opacity-40 text-[20vw]">BLOG</div>
 			</div>
@@ -103,7 +103,7 @@
 			<div
 				in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
-				class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full"
+				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
 				<div class="opacity-40 text-[16vw] ">CONTACT</div>
 			</div>
