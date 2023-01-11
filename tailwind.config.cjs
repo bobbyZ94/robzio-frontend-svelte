@@ -3,6 +3,7 @@ module.exports = {
   darkMode: 'class',
   content: [
     './src/**/*.{html,js,svelte,ts}', 
+    "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
   ],
   important: true,
   theme: {
@@ -15,5 +16,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'), 
     require('tailwind-scrollbar'),
+    require('flowbite/plugin'),
   ],
 }
