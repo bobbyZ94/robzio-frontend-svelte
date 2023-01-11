@@ -33,7 +33,7 @@ export async function load({ fetch }) {
   return {
     aboutPageData: aboutPageData.json(),
     contactPageData: contactPageData.json(),
-    blogsPageData: blogPageData.json(),
+    blogPageData: blogPageData.json(),
     projectsPageData: projectsPageData.json()
   };
 }

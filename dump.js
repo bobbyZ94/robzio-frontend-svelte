@@ -25,3 +25,31 @@ use:viewport
 						showNavbar.set(true);
 						showAboutText.set(true);
 					}}
+
+
+          <!--PAGINATOR-->
+          <div class="mt-10 flex gap-5 z-20">
+            <button
+              class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center "
+              on:click={() => {
+                if (currentPage === 1) currentPage = maxNumberOfPages;
+                else currentPage--;
+                flyDirection = 'left';
+              }}><ChevronLeft size={24} /></button
+            >
+            {#each { length: maxNumberOfPages } as _, i}
+              <button
+                on:click={() => (currentPage = i + 1)}
+                class={`${currentPage === i + 1 ? 'scale-110 font-semibold' : ''}`}>{i + 1}</button
+              >
+            {/each}
+            <button
+              class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center"
+              on:click={() => {
+                if (currentPage === maxNumberOfPages) currentPage = 1;
+                else currentPage++;
+                flyDirection = 'right';
+              }}><ChevronRight size={24} /></button
+            >
+          </div>
+        </div>

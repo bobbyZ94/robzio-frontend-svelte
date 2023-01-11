@@ -7,7 +7,7 @@
 
 <a href={projectLink}>
 	<div
-		class="bg-zinc-800 w-[45rem] h-[35rem] flex flex-col justify-between rounded-xl overflow-hidden shadow-x hover:scale-[1.02] duration-300 ease-in-out opacity-95"
+		class="bg-zinc-800 w-[45rem] h-[35rem] flex flex-col justify-between rounded-xl overflow-hidden opacity-95"
 	>
 		<div class="w-[45rem] h-[22rem]">
 			<img src={projectImage} alt={projectTitle} class="w-full h-full object-cover" />
