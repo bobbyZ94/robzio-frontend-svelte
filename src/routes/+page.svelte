@@ -63,10 +63,10 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[15vw]">PROJECTS</div>
+				<div class="opacity-40 text-[16vw]">PROJECTS</div>
 			</div>
 		{/if}
-		<Projects projectsPageData={data.projectsPageData} />
+		<Projects projectsPageData={data.projectsPageData} {projectsIsInView} />
 	</div>
 
 	<div
@@ -84,7 +84,7 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[20vw]">BLOG</div>
+				<div class="opacity-40 text-[25vw]">BLOG</div>
 			</div>
 		{/if}
 		<Blog blogPageData={data.blogPageData} />

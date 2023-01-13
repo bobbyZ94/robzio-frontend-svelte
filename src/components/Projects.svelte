@@ -6,13 +6,25 @@
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import ProjectCard from './ProjectCard.svelte';
 	export let projectsPageData;
-
+	export let projectsIsInView;
+	// project slider autoplay feature
+	const autoPlayInterval = 8000;
+	function autoPlay(autoPlayInterval) {
+		setInterval(() => {
+			if (projectsIsInView) {
+				flyDirection = 'right';
+				if (currentPage === maxNumberOfPages) currentPage = 1;
+				else currentPage++;
+			}
+		}, autoPlayInterval);
+	}
+	// reactive binding, so autoPlay only start when projectsIsInView changes
+	$: if (projectsIsInView) autoPlay(autoPlayInterval);
 	const projectsCount = projectsPageData.data.length;
 	const projectsPerPage = 1;
-	const maxNumberOfPages = projectsCount / projectsPerPage;
+	const maxNumberOfPages = Math.ceil(projectsCount / projectsPerPage);
 	let currentPage = 1;
 	let flyDirection = 'right';
-
 	// custom in/out transition functions to ensure that component gets updated flyDirection asap
 	const myIn = (el) => {
 		return fly(el, {
@@ -37,33 +49,29 @@
 </script>
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
-	<div class="z-20 items-center justify-center gap-10 container">
-		{#key currentPage}
-			{#key flyDirection}
-				<div
-					class="item flex items-center justify-center gap-16 overflow-hidden hover:scale-[1.02] duration-300 ease-in-out"
-				>
-					{#each projectsPageData.data.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
-						<div class="rounded-xl overflow-hidden">
-							<div in:myIn out:myOut>
-								<ProjectCard
-									projectTitle={project.attributes.Title}
-									projectText={project.attributes.Text}
-									projectImage={`${env.PUBLIC_STRAPI_URL}${project.attributes.Image.data.attributes.formats.large.url}`}
-									projectLink={project.attributes.Link ? project.attributes.Link : null}
-								/>
-							</div>
-						</div>
-					{/each}
-				</div>
-			{/key}
-		{/key}
+	<div class="z-20 flex items-center gap-10 justify-center">
+		{#each projectsPageData.data.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
+			<div
+				class="fixContainerTransition rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out"
+			>
+				{#key currentPage}
+					<div class="fixItemTransition" in:myIn|local out:myOut|local>
+						<ProjectCard
+							projectTitle={project.attributes.Title}
+							projectText={project.attributes.Text}
+							projectImage={`${env.PUBLIC_STRAPI_URL}${project.attributes.Image.data.attributes.formats.large.url}`}
+							projectLink={project.attributes.Link ? project.attributes.Link : null}
+						/>
+					</div>
+				{/key}
+			</div>
+		{/each}
 	</div>
 
 	<!--PAGINATOR-->
 	<div class="mt-10 flex gap-1 z-20 items-center">
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center"
+			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'left';
 				if (currentPage === 1) currentPage = maxNumberOfPages;
@@ -76,7 +84,7 @@
 		</div>
 
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center"
+			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'right';
 				if (currentPage === maxNumberOfPages) currentPage = 1;
@@ -88,14 +96,14 @@
 
 <!-- css hack for problem with transition of same elements; svelte does not have a fix yet -->
 <style>
-	.container {
+	.fixContainerTransition {
 		display: grid;
 	}
 
-	.item {
+	.fixItemTransition {
 		grid-column-start: 1;
-		grid-column-end: 2;
+		grid-column-end: 1;
 		grid-row-start: 1;
-		grid-row-end: 2;
+		grid-row-end: 1;
 	}
 </style>

@@ -37,34 +37,32 @@
 </script>
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
-	<div class="z-20 items-center justify-center gap-10 containerForTransition">
+	<div class="fixContainerTransition overflow-hidden rounded-xl max-w-7xl">
 		{#key currentPage}
-			{#key flyDirection}
-				<div
-					class="itemForTransition flex items-center justify-center gap-16 overflow-hidden rounded-xl"
-				>
-					{#each blogPageData.data.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
-						<div class="hover:scale-[1.02] duration-300 ease-in-out rounded-xl">
-							<div in:myIn out:myOut>
-								<BlogCard
-									blogTitle={blogEntry.attributes.Title}
-									blogText={blogEntry.attributes.Text}
-									blogImage={`${env.PUBLIC_STRAPI_URL}${blogEntry.attributes.Image.data.attributes.formats.large.url}`}
-									blogLink={blogEntry.attributes.Link ? blogEntry.attributes.Link : null}
-									blogDate={new Date(blogEntry.attributes.Date).toLocaleDateString('de-DE')}
-								/>
-							</div>
-						</div>
-					{/each}
-				</div>
-			{/key}
+			<div
+				in:myIn|local
+				out:myOut|local
+				class="fixItemTransition z-20 items-center justify-center gap-10 flex flex-wrap"
+			>
+				{#each blogPageData.data.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
+					<div class="rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out">
+						<BlogCard
+							blogTitle={blogEntry.attributes.Title}
+							blogText={blogEntry.attributes.Text}
+							blogImage={`${env.PUBLIC_STRAPI_URL}${blogEntry.attributes.Image.data.attributes.formats.large.url}`}
+							blogDate={new Date(blogEntry.attributes.Date).toLocaleDateString('de-DE')}
+							blogSlug={blogEntry.attributes.Slug}
+						/>
+					</div>
+				{/each}
+			</div>
 		{/key}
 	</div>
 
 	<!--PAGINATOR-->
 	<div class="mt-10 flex gap-1 z-20 items-center">
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center"
+			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'left';
 				if (currentPage === 1) currentPage = maxNumberOfPages;
@@ -77,7 +75,7 @@
 		</div>
 
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center"
+			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'right';
 				if (currentPage === maxNumberOfPages) currentPage = 1;
@@ -89,14 +87,14 @@
 
 <!-- css hack for problem with transition of same elements; svelte does not have a fix yet -->
 <style>
-	.containerForTransition {
+	.fixContainerTransition {
 		display: grid;
 	}
 
-	.itemForTransition {
+	.fixItemTransition {
 		grid-column-start: 1;
-		grid-column-end: 2;
+		grid-column-end: 1;
 		grid-row-start: 1;
-		grid-row-end: 2;
+		grid-row-end: 1;
 	}
 </style>
