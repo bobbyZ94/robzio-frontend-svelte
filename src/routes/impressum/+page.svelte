@@ -3,7 +3,7 @@
 	import { showNavbar } from '../../lib/stores';
 	/** @type {import('./$types').PageData} */
 	export let data;
-	const siteInformation = data.siteInformation.data.attributes;
+	const settings = data.settings;
 	showNavbar.set(true);
 </script>
 
@@ -17,13 +17,13 @@
 		</div>
 	</div>
 
-	<div class="z-20 opacity-95">
+	<div id="impresssum-text" class="z-20 opacity-95">
 		<div class="flex flex-col items-center justify-center bg-zinc-800 rounded-xl p-10 gap-5">
 			<div class="text-xl font-semibold">Impressum</div>
-			<div>{siteInformation.Owner}</div>
-			<div>{siteInformation.Street}</div>
-			<div>{siteInformation.City}</div>
-			<div>{siteInformation.Email}</div>
+			<div>{settings.owner}</div>
+			<div>{settings.street}</div>
+			<div>{settings.city}</div>
+			<div>{settings.email}</div>
 		</div>
 	</div>
 </div>

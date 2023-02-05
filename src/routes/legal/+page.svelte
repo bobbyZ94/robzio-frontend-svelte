@@ -1,9 +1,10 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { showNavbar } from '../../lib/stores';
+	import serialize from '../../utils/serialize';
 	/** @type {import('./$types').PageData} */
 	export let data;
-	const legalPageData = data.legalPageData.data.attributes;
+	const legalText = { children: data.legal.text };
 	showNavbar.set(true);
 </script>
 
@@ -20,6 +21,6 @@
 	<div
 		class="max-w-4xl rounded-xl bg-zinc-800 p-10 px-10 mx-5 prose-base prose-ul:list-disc prose-ol:list-decimal hover:prose-a:underline prose-a:text-blue-600 z-20 opacity-95"
 	>
-		{@html legalPageData.Text}
+		{@html serialize(legalText)}
 	</div>
 </div>

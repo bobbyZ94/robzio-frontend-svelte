@@ -1,39 +1,32 @@
 import { env } from '$env/dynamic/private';
 
+const authorizationHeader = {
+                              'Content-Type': 'application/json',
+                              authorization: `users API-Key ${env.PAYLOADCMS_API_KEY}` 
+                            }
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
-  const aboutPageData = await fetch(`${env.STRAPI_URL}/api/about-page/?populate=*`, {
+  const about = await fetch(`${env.PAYLOADCMS_URL}/api/globals/about`, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${env.STRAPI_READ_KEY}`
-    }
+    headers: authorizationHeader
   })
-  const contactPageData = await fetch(`${env.STRAPI_URL}/api/contact/?populate=*`, {
+  const contact = await fetch(`${env.PAYLOADCMS_URL}/api/globals/contact`, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${env.STRAPI_READ_KEY}`
-    }
+    headers: authorizationHeader
   })
-  const blogPageData = await fetch(`${env.STRAPI_URL}/api/blogs?populate=*`, {
+  const blog = await fetch(`${env.PAYLOADCMS_URL}/api/blog`, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${env.STRAPI_READ_KEY}`
-    }
+    headers: authorizationHeader
   })
-  const projectsPageData = await fetch(`${env.STRAPI_URL}/api/projects?populate=*`, {
+  const projects = await fetch(`${env.PAYLOADCMS_URL}/api/projects`, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${env.STRAPI_READ_KEY}`
-    }
+    headers: authorizationHeader
   })
   return {
-    aboutPageData: aboutPageData.json(),
-    contactPageData: contactPageData.json(),
-    blogPageData: blogPageData.json(),
-    projectsPageData: projectsPageData.json()
+    about: about.json(),
+    contact: contact.json(),
+    blog: blog.json(),
+    projects: projects.json()
   };
 }

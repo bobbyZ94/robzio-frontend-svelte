@@ -2,14 +2,14 @@ import { env } from '$env/dynamic/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
-  const legalPageData = await fetch(`${env.STRAPI_URL}/api/legal-page/?populate=*`, {
+  const legal = await fetch(`${env.PAYLOADCMS_URL}/api/globals/legal`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${env.STRAPI_READ_KEY}`
+      authorization: `users API-Key ${env.PAYLOADCMS_API_KEY}`
     }
   })
   return {
-    legalPageData: legalPageData.json(),
+    legal: legal.json(),
   };
 }

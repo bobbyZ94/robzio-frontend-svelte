@@ -59,7 +59,7 @@
 						<ProjectCard
 							projectTitle={project.attributes.Title}
 							projectText={project.attributes.Text}
-							projectImage={`${env.PUBLIC_STRAPI_URL}${project.attributes.Image.data.attributes.formats.large.url}`}
+							projectImage={`${env.PUBLIC_PAYLOADCMS_URL}${project.attributes.Image.data.attributes.formats.large.url}`}
 							projectLink={project.attributes.Link ? project.attributes.Link : null}
 						/>
 					</div>

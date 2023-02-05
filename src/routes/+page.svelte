@@ -45,7 +45,7 @@
 				<div class="opacity-40 text-[20vw]">ABOUT</div>
 			</div>
 		{/if}
-		<About aboutPageData={data.aboutPageData} />
+		<About about={data.about} />
 	</div>
 
 	<div
@@ -66,7 +66,7 @@
 				<div class="opacity-40 text-[16vw]">PROJECTS</div>
 			</div>
 		{/if}
-		<Projects projectsPageData={data.projectsPageData} {projectsIsInView} />
+		<Projects projects={data.projects} {projectsIsInView} />
 	</div>
 
 	<div
@@ -87,7 +87,7 @@
 				<div class="opacity-40 text-[25vw]">BLOG</div>
 			</div>
 		{/if}
-		<Blog blogPageData={data.blogPageData} />
+		<Blog blog={data.blog} />
 	</div>
 
 	<div
@@ -108,6 +108,6 @@
 				<div class="opacity-40 text-[16vw] ">CONTACT</div>
 			</div>
 		{/if}
-		<Contact contactPageData={data.contactPageData} />
+		<Contact contact={data.contact} />
 	</div>
 </div>
