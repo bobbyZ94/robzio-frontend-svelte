@@ -10,8 +10,10 @@
 </script>
 
 <a href={projectLink}>
-	<div class="bg-zinc-800 w-[45rem] h-[34rem] flex flex-col rounded-xl overflow-hidden opacity-95">
-		<div class="w-[45rem] h-[22rem]">
+	<div
+		class="bg-zinc-800 w-[20rem] lg:w-[45rem] h-[34rem] flex flex-col rounded-xl overflow-hidden opacity-95"
+	>
+		<div class="w-[20rem] lg:w-[45rem] h-[22rem]">
 			<img src={projectImage} alt={projectTitle} class="w-full h-full object-cover" />
 		</div>
 		<div class="p-5 flex flex-col justify-between flex-grow">
