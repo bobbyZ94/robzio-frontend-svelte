@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="px-5 py-2 w-full flex justify-between items-center h-full text-xl font-semibold">
-			{blogTitle}
+			{blogTitle.length > 100 ? blogTitle.slice(0, 100) + ' ...' : blogTitle}
 			<span class="ml-5 text-xs italic self-start pt-1 font-normal">{blogDate}</span>
 		</div>
 	</div>
