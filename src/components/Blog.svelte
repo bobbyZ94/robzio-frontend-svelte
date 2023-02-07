@@ -6,9 +6,8 @@
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import BlogCard from './BlogCard.svelte';
 	export let blog;
-	const blogEntries = blog.docs;
 
-	const blogEntriesCount = blogEntries.length;
+	const blogEntriesCount = blog.docs.length;
 	const blogEntriesPerPage = 3;
 	const maxNumberOfPages = Math.ceil(blogEntriesCount / blogEntriesPerPage);
 	let currentPage = 1;
@@ -45,13 +44,13 @@
 				out:myOut|local
 				class="fixItemTransition z-20 items-center justify-center gap-10 flex flex-wrap"
 			>
-				{#each blogEntries.data.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
+				{#each blog.docs.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
 					<div class="rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out">
 						<BlogCard
 							blogTitle={blogEntry.title}
-							blogImage={`${env.PUBLIC_PAYLOADCMS_URL}${blogEntry.attributes.Image.data.attributes.formats.large.url}`}
+							blogImage={blogEntry.image.url}
 							blogDate={new Date(blogEntry.date).toLocaleDateString('de-DE')}
-							blogSlug={blogEntry.attributes.Slug}
+							blogSlug={blogEntry.slug}
 						/>
 					</div>
 				{/each}

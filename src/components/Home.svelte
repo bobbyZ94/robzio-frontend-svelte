@@ -78,7 +78,7 @@
 				<div class="z-20 -translate-x-10">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
-						class="z-20 hover:scale-105 ease-in-out duration-300-24 h-24 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+						class="z-20 hover:scale-105 ease-in-out duration-300 w-24 h-24 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 					>
 						Contact
 					</div>

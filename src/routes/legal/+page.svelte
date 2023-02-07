@@ -14,7 +14,7 @@
 			in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
 			class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 		>
-			<div class="opacity-40 text-[24vw]">LEGAL</div>
+			<div class="opacity-40 text-[24vw] select-none">LEGAL</div>
 		</div>
 	</div>
 

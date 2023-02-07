@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="w-full min-h-screen flex flex-col items-center  bg-zinc-900 text-gray-50 font-montserrat"
+	class="w-full min-h-screen flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat"
 >
 	{#if showNavbarValue}
 		<div class="fixed top-[30%] right-20 z-30">

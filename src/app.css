@@ -8,6 +8,11 @@
     src: local("Montserrat"), url("/fonts/Montserrat-Regular.woff") format(woff);
   }
 
+  @font-face {
+    font-family: "FiraCode";
+    src: local("FiraCode"), url("/fonts/FiraCode-Regular.woff") format(woff);
+  }
+
   circle,
   rect,
   line {

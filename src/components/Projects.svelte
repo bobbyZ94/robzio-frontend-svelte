@@ -1,16 +1,16 @@
 <script>
-	import { env } from '$env/dynamic/public';
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 	import ChevronLeft from 'carbon-icons-svelte/lib/ChevronLeft.svelte';
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import ProjectCard from './ProjectCard.svelte';
-	export let projectsPageData;
+	export let projects;
 	export let projectsIsInView;
 	// project slider autoplay feature
 	const autoPlayInterval = 8000;
+	let intervalID;
 	function autoPlay(autoPlayInterval) {
-		setInterval(() => {
+		intervalID = setInterval(() => {
 			if (projectsIsInView) {
 				flyDirection = 'right';
 				if (currentPage === maxNumberOfPages) currentPage = 1;
@@ -20,7 +20,7 @@
 	}
 	// reactive binding, so autoPlay only start when projectsIsInView changes
 	$: if (projectsIsInView) autoPlay(autoPlayInterval);
-	const projectsCount = projectsPageData.data.length;
+	const projectsCount = projects.docs.length;
 	const projectsPerPage = 1;
 	const maxNumberOfPages = Math.ceil(projectsCount / projectsPerPage);
 	let currentPage = 1;
@@ -50,17 +50,18 @@
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
 	<div class="z-20 flex items-center gap-10 justify-center">
-		{#each projectsPageData.data.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
+		{#each projects.docs.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
 			<div
 				class="fixContainerTransition rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out"
 			>
 				{#key currentPage}
 					<div class="fixItemTransition" in:myIn|local out:myOut|local>
 						<ProjectCard
-							projectTitle={project.attributes.Title}
-							projectText={project.attributes.Text}
-							projectImage={`${env.PUBLIC_PAYLOADCMS_URL}${project.attributes.Image.data.attributes.formats.large.url}`}
-							projectLink={project.attributes.Link ? project.attributes.Link : null}
+							projectTitle={project.title}
+							projectDescription={project.text}
+							projectKeywords={project.keywords}
+							projectImage={project.image.url}
+							projectLink={project.link ? project.link : null}
 						/>
 					</div>
 				{/key}
@@ -73,6 +74,7 @@
 		<button
 			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
+				clearInterval(intervalID);
 				flyDirection = 'left';
 				if (currentPage === 1) currentPage = maxNumberOfPages;
 				else currentPage--;
@@ -86,6 +88,7 @@
 		<button
 			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
 			on:click={() => {
+				clearInterval(intervalID);
 				flyDirection = 'right';
 				if (currentPage === maxNumberOfPages) currentPage = 1;
 				else currentPage++;

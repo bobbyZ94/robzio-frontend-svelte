@@ -4,7 +4,9 @@ import { Text } from 'slate'
 const serialize = node => {
   if (Text.isText(node)) {
     let string = escapeHtml(node.text).replace(/\n/g, '<br>')
-    
+    if (node.code) {
+      string = `<code class="bg-zinc-900 font-firacode p-1">${string}</code>`
+    }
     if (node.bold) {
       string = `<span class="font-bold">${string}</span>`
     }

@@ -42,7 +42,7 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[20vw]">ABOUT</div>
+				<div class="opacity-40 text-[20vw] select-none">ABOUT</div>
 			</div>
 		{/if}
 		<About about={data.about} />
@@ -63,7 +63,7 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[16vw]">PROJECTS</div>
+				<div class="opacity-40 text-[16vw] select-none">PROJECTS</div>
 			</div>
 		{/if}
 		<Projects projects={data.projects} {projectsIsInView} />
@@ -84,7 +84,7 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[25vw]">BLOG</div>
+				<div class="opacity-40 text-[25vw] select-none">BLOG</div>
 			</div>
 		{/if}
 		<Blog blog={data.blog} />
@@ -105,7 +105,7 @@
 				out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 				class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 			>
-				<div class="opacity-40 text-[16vw] ">CONTACT</div>
+				<div class="opacity-40 text-[16vw] select-none">CONTACT</div>
 			</div>
 		{/if}
 		<Contact contact={data.contact} />
