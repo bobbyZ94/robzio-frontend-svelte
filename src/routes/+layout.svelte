@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import SideNavbar from '../components/SideNavbar.svelte';
+	import MobileBackButton from '../components/MobileBackButton.svelte';
 	import Footer from '../components/Footer.svelte';
 	import { showNavbar } from '../lib/stores';
 	let showNavbarValue;
@@ -13,8 +14,11 @@
 	class="w-full min-h-screen flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat"
 >
 	{#if showNavbarValue}
-		<div class="hidden lg:fixed top-[30%] right-20 z-30">
+		<div class="hidden md:fixed top-[30%] right-20 z-30">
 			<SideNavbar />
+		</div>
+		<div class="md:hidden fixed top-0 right-0 z-30">
+			<MobileBackButton />
 		</div>
 	{/if}
 	<div class="flex flex-grow h-full w-full">

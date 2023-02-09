@@ -8,6 +8,7 @@
 	export let projectsIsInView;
 	// project slider autoplay feature
 	const autoPlayInterval = 8000;
+	let isPlaying = false;
 	let intervalID;
 	function autoPlay(autoPlayInterval) {
 		intervalID = setInterval(() => {
@@ -19,7 +20,10 @@
 		}, autoPlayInterval);
 	}
 	// reactive binding, so autoPlay only start when projectsIsInView changes
-	$: if (projectsIsInView) autoPlay(autoPlayInterval);
+	$: if (projectsIsInView && !isPlaying) {
+		autoPlay(autoPlayInterval);
+		isPlaying = true;
+	}
 	const projectsCount = projects.docs.length;
 	const projectsPerPage = 1;
 	const maxNumberOfPages = Math.ceil(projectsCount / projectsPerPage);

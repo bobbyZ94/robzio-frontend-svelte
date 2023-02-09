@@ -94,22 +94,22 @@
 			</div>
 		{:else}
 			<svg
-				width="300px"
+				width="230px"
 				height="500px"
 				in:fade={{ delay: 500, duration: 2000 }}
 				class="relative z-20"
 			>
 				<circle
 					class="stroke-gray-50 stroke-[1px] -translate-x-4"
-					cx="165"
+					cx="135"
 					cy="250"
-					r="135"
+					r="110"
 					in:draw={{ duration: 4000, delay: 500, easing: quintInOut }}
 				/>
-				<foreignObject x="40" y="180" width="80%" height="100%">
+				<foreignObject x="33" y="190" width="80%" height="100%">
 					<div class="uppercase font-semibold z-20">
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-3xl">Robert</div>
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-3xl">Zioltkowski</div>
+						<div in:fade={{ delay: 500, duration: 1000 }} class="text-2xl">Robert</div>
+						<div in:fade={{ delay: 500, duration: 1000 }} class="text-2xl">Zioltkowski</div>
 						<Typewriter
 							mode="loop"
 							interval="130"
@@ -127,12 +127,12 @@
 					</div>
 				</foreignObject>
 			</svg>
-			<div class="flex flex-col gap-5 ml-5 z-20 text-xs -translate-x-3">
+			<div class="flex flex-col gap-5 ml-6 z-20 text-xs -translate-x-3">
 				<a href="/#about">
 					<div class="-translate-x-10 z-20">
 						<div
 							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
-							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 						>
 							About
 						</div>
@@ -141,7 +141,7 @@
 				<a href="/#projects">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
-						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 					>
 						Projects
 					</div>
@@ -149,7 +149,7 @@
 				<a href="/#blog">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
-						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 					>
 						Blog
 					</div>
@@ -158,7 +158,7 @@
 					<div class="z-20 -translate-x-10">
 						<div
 							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
-							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 						>
 							Contact
 						</div>

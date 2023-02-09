@@ -7,9 +7,13 @@
 	import BlogCard from './BlogCard.svelte';
 	export let blog;
 
+	// md breakpoint in pixels
+	const md = 800;
+	$: innerWidth = 0;
+
 	const blogEntriesCount = blog.docs.length;
-	const blogEntriesPerPage = 3;
-	const maxNumberOfPages = Math.ceil(blogEntriesCount / blogEntriesPerPage);
+	$: blogEntriesPerPage = innerWidth > md ? 3 : 2;
+	$: maxNumberOfPages = Math.ceil(blogEntriesCount / blogEntriesPerPage);
 	let currentPage = 1;
 	let flyDirection = 'right';
 
@@ -35,6 +39,9 @@
 		});
 	};
 </script>
+
+<!-- track innerWidth of screen in pixels  -->
+<svelte:window bind:innerWidth />
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
 	<div class="fixContainerTransition overflow-hidden rounded-xl max-w-7xl">

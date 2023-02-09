@@ -18,7 +18,7 @@
 	{@html atomOneDark}
 </svelte:head>
 
-<div class="flex-grow items-center justify-center flex my-20">
+<div class="flex-grow items-center justify-center flex my-20 overflow-hidden">
 	<div>
 		<div
 			in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
@@ -29,15 +29,17 @@
 	</div>
 
 	<div
-		class="prose-table:my-2 prose-pre:p-0 prose-code:text-base max-w-4xl rounded-xl bg-zinc-800 p-10 px-10 mx-5 prose-base prose-ul:list-disc prose-ol:list-decimal hover:prose-a:underline prose-a:text-blue-600 z-20 opacity-95"
+		class="break-words overflow-hidden prose-table:my-3 prose-pre:p-0 prose-code:text-base prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg md:prose-h2:text-3xl 
+    md:prose-h3:text-2xl md:prose-h1:text-4xl max-w-4xl rounded-xl bg-zinc-800 p-5 md:p-10 px-5 m-5 md:px-10 prose-sm md:prose-base 
+    prose-ul:list-disc prose-ol:list-decimal hover:prose-a:underline prose-a:text-blue-600 z-20 opacity-95 leading-5 md:leading-6 prose-p:my-2"
 	>
-		<div class="text-3xl mb-5">{blogEntry.title}</div>
+		<div class="md:text-3xl text-2xl mb-5">{blogEntry.title}</div>
 		{#each blogEntry.contentBlocks as block}
 			{#if block.blockType === 'richText'}
 				{@html serialize(new Object({ children: block.text }))}
 			{/if}
 			{#if block.blockType === 'code javascript'}
-				<div class="bg-gray-800 translate-y-2 px-3">{block.filename}</div>
+				<div class="bg-gray-800 px-3">{block.filename}</div>
 				<Highlight language={javascript} code={block.code} let:highlighted>
 					<LineNumbers {highlighted} hideBorder />
 				</Highlight>

@@ -18,8 +18,10 @@
 	</div>
 
 	<div id="impresssum-text" class="z-20 opacity-95">
-		<div class="flex flex-col items-center justify-center bg-zinc-800 rounded-xl p-10 gap-5">
-			<div class="text-xl font-semibold">Impressum</div>
+		<div
+			class="flex flex-col items-center justify-center bg-zinc-800 rounded-xl p-10 gap-5 md:text-xl text-sm"
+		>
+			<div class="text-xl md:text-2xl font-semibold">Impressum</div>
 			<div>{settings.owner}</div>
 			<div>{settings.street}</div>
 			<div>{settings.city}</div>

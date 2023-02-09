@@ -8,7 +8,7 @@
 	showNavbar.set(true);
 </script>
 
-<div class="flex-grow items-center justify-center flex my-20">
+<div class="flex-grow items-center justify-center flex my-20 overflow-hidden">
 	<div>
 		<div
 			in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
@@ -19,7 +19,9 @@
 	</div>
 
 	<div
-		class="max-w-4xl rounded-xl bg-zinc-800 p-10 px-10 mx-5 prose-base prose-ul:list-disc prose-ol:list-decimal hover:prose-a:underline prose-a:text-blue-600 z-20 opacity-95"
+		class="overflow-hidden break-words prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg md:prose-h2:text-3xl md:prose-h3:text-2xl md:prose-h1:text-4xl max-w-4xl rounded-xl bg-zinc-800 
+    p-5 md:p-10 px-5 m-5 md:px-10 prose-sm md:prose-base prose-ul:list-disc prose-ol:list-decimal hover:prose-a:underline prose-a:text-blue-600 
+    z-20 opacity-95 leading-5 md:leading-6"
 	>
 		{@html serialize(legalText)}
 	</div>
