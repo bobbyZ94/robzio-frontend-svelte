@@ -33,8 +33,6 @@ const serialize = node => {
       return `<h3>${children}</h3>`       
     case 'quote':
       return `<blockquote><p>${children}</p></blockquote>`
-    case 'p':
-      return `<p>${children}</p>`
     case 'link':
       // TODO: logic for internal links via linkType
       return node.newTab ? `<a class="underline" target="_blank" href="${escapeHtml(node.url)}">${children}</a>` : `<a class="underline" href="${escapeHtml(node.url)}">${children}</a>`
@@ -48,8 +46,9 @@ const serialize = node => {
       return `<li>${children}</li>`
     case 'upload':
       return `<img class="max-h-[25rem] m-auto" src=${node.value.url} alt=${node.value.title}>${children}</img>`
+    // fixes the missing 'p' type bug in slate editor
     default:
-      return children
+      return `<p>${children}</p>`
   }
 }
 
