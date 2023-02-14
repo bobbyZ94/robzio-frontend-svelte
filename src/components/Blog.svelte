@@ -55,7 +55,7 @@
 					<div class="rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out">
 						<BlogCard
 							blogTitle={blogEntry.title}
-							blogImage={blogEntry.image.url}
+							blogImage={`${env.PUBLIC_PAYLOADCMS_URL}${blogEntry.image.url}`}
 							blogDate={new Date(blogEntry.date).toLocaleDateString('de-DE')}
 							blogSlug={blogEntry.slug}
 						/>

@@ -1,4 +1,5 @@
 <script>
+	import { env } from '$env/dynamic/public';
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 	import ChevronLeft from 'carbon-icons-svelte/lib/ChevronLeft.svelte';
@@ -59,12 +60,16 @@
 				class="fixContainerTransition rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out"
 			>
 				{#key currentPage}
-					<div class="fixItemTransition" in:myIn|local out:myOut|local>
+					<div
+						class="fixItemTransition"
+						in:myIn|local
+						out:myOut|local
+					>
 						<ProjectCard
 							projectTitle={project.title}
 							projectDescription={project.text}
 							projectKeywords={project.keywords}
-							projectImage={project.image.url}
+							projectImage={`${env.PUBLIC_PAYLOADCMS_URL}${project.image.url}`}
 							projectLink={project.link ? project.link : null}
 						/>
 					</div>
