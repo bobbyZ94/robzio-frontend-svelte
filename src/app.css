@@ -20,3 +20,16 @@
     fill: transparent;
   }
 }
+
+@layer utilities {
+
+  /* Enables half colored background of element. !Must be span or inline element! */
+  .bg-half-color {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        #27272a 50%,
+        #52525b 100%);
+  }
+}

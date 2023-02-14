@@ -8,11 +8,11 @@
 	export let blog;
 
 	// md breakpoint in pixels
-	const md = 800;
+	const xl = 1500;
 	$: innerWidth = 0;
 
 	const blogEntriesCount = blog.docs.length;
-	$: blogEntriesPerPage = innerWidth > md ? 3 : 2;
+	$: blogEntriesPerPage = innerWidth > xl ? 3 : 2;
 	$: maxNumberOfPages = Math.ceil(blogEntriesCount / blogEntriesPerPage);
 	let currentPage = 1;
 	let flyDirection = 'right';
@@ -43,13 +43,13 @@
 <!-- track innerWidth of screen in pixels  -->
 <svelte:window bind:innerWidth />
 
-<div class="w-full h-screen flex flex-col justify-center items-center">
-	<div class="fixContainerTransition overflow-hidden rounded-xl max-w-7xl">
+<div class="flex flex-col items-center justify-center w-full h-screen">
+	<div class="overflow-hidden fixContainerTransition rounded-xl max-w-7xl">
 		{#key currentPage}
 			<div
 				in:myIn|local
 				out:myOut|local
-				class="fixItemTransition z-20 items-center justify-center gap-10 flex flex-wrap"
+				class="z-20 flex flex-wrap items-center justify-center gap-10 fixItemTransition"
 			>
 				{#each blog.docs.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
 					<div class="rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out">
@@ -66,9 +66,9 @@
 	</div>
 
 	<!--PAGINATOR-->
-	<div class="mt-10 flex gap-1 z-20 items-center">
+	<div class="z-20 flex items-center gap-1 mt-10">
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
+			class="flex items-center justify-center w-8 h-8 border rounded-full border-gray-50 bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'left';
 				if (currentPage === 1) currentPage = maxNumberOfPages;
@@ -76,12 +76,12 @@
 			}}><ChevronLeft size={24} /></button
 		>
 
-		<div class="w-12 text-center h-6 tracking-widest">
+		<div class="w-12 h-6 tracking-widest text-center">
 			{currentPage}/{maxNumberOfPages}
 		</div>
 
 		<button
-			class="border border-gray-50 rounded-full h-8 w-8 flex items-center justify-center bg-zinc-900 opacity-95"
+			class="flex items-center justify-center w-8 h-8 border rounded-full border-gray-50 bg-zinc-900 opacity-95"
 			on:click={() => {
 				flyDirection = 'right';
 				if (currentPage === maxNumberOfPages) currentPage = 1;

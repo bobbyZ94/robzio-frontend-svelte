@@ -15,11 +15,11 @@ export async function load({ fetch }) {
     method: 'GET',
     headers: authorizationHeader
   })
-  const blog = await fetch(`${env.PAYLOADCMS_URL}/api/blog`, {
+  const blog = await fetch(`${env.PAYLOADCMS_URL}/api/blog?where[_status][equals]=published`, {
     method: 'GET',
     headers: authorizationHeader
   })
-  const projects = await fetch(`${env.PAYLOADCMS_URL}/api/projects`, {
+  const projects = await fetch(`${env.PAYLOADCMS_URL}/api/projects?where[_status][equals]=published`, {
     method: 'GET',
     headers: authorizationHeader
   })

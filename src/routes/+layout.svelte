@@ -11,17 +11,17 @@
 </script>
 
 <div
-	class="w-full min-h-screen flex flex-col items-center bg-zinc-900 text-gray-50 font-montserrat"
+	class="flex flex-col items-center w-full min-h-screen bg-zinc-900 text-gray-50 font-montserrat"
 >
 	{#if showNavbarValue}
 		<div class="hidden lg:block fixed top-[30%] right-20 z-30">
 			<SideNavbar />
 		</div>
-		<div class="lg:hidden fixed top-0 right-0 z-30">
+		<div class="fixed top-0 right-0 z-30 lg:hidden">
 			<MobileBackButton />
 		</div>
 	{/if}
-	<div class="flex flex-grow h-full w-full">
+	<div class="flex flex-grow w-full h-full">
 		<slot />
 	</div>
 	<Footer />

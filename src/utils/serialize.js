@@ -5,7 +5,7 @@ const serialize = node => {
   if (Text.isText(node)) {
     let string = escapeHtml(node.text).replace(/\n/g, '<br>')
     if (node.code) {
-      string = `<code class="bg-zinc-900 font-firacode p-1">${string}</code>`
+      string = `<code class="bg-zinc-900 font-firacode p-1 box-decoration-clone">${string}</code>`
     }
     if (node.bold) {
       string = `<span class="font-bold">${string}</span>`
@@ -31,8 +31,6 @@ const serialize = node => {
       return `<h2>${children}</h2>`
     case 'h3':
       return `<h3>${children}</h3>`       
-    case 'quote':
-      return `<blockquote><p>${children}</p></blockquote>`
     case 'link':
       // TODO: logic for internal links via linkType
       return node.newTab ? `<a class="underline" target="_blank" href="${escapeHtml(node.url)}">${children}</a>` : `<a class="underline" href="${escapeHtml(node.url)}">${children}</a>`
@@ -46,6 +44,8 @@ const serialize = node => {
       return `<li>${children}</li>`
     case 'upload':
       return `<img class="max-h-[25rem] m-auto" src=${node.value.url} alt=${node.value.title}>${children}</img>`
+    case 'p':
+      return `<p>${children}</p>`
     // fixes the missing 'p' type bug in slate editor
     default:
       return `<p>${children}</p>`

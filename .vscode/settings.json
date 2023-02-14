@@ -5,5 +5,9 @@
     "activityBar.background": "#4A221D",
     "titleBar.activeBackground": "#682F28",
     "titleBar.activeForeground": "#FCF9F9"
-  }
+  },
+  // disables autoformat of tailwinds css files (without it, it generates spaces after colons)
+  // "files.associations": {
+  //   "*.css": "tailwindcss"
+  // }
 }
