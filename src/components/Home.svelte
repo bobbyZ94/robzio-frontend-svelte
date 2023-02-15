@@ -33,10 +33,25 @@
 					r="220"
 					in:draw={{ duration: 4000, delay: 500, easing: quintInOut }}
 				/>
-				<foreignObject x="75" y="180" width="70%" height="100%">
+				<foreignObject
+					x="75"
+					y="180"
+					width="80%"
+					height="100%"
+				>
 					<div class="uppercase font-semibold z-20">
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-5xl">Robert</div>
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-5xl">Zioltkowski</div>
+						<div
+							in:fade={{ delay: 500, duration: 1000 }}
+							class="text-5xl"
+						>
+							Robert
+						</div>
+						<div
+							in:fade={{ delay: 500, duration: 1000 }}
+							class="text-5xl"
+						>
+							Zioltkowski
+						</div>
 						<Typewriter
 							mode="loop"
 							interval="130"
@@ -106,10 +121,25 @@
 					r="110"
 					in:draw={{ duration: 4000, delay: 500, easing: quintInOut }}
 				/>
-				<foreignObject x="33" y="190" width="80%" height="100%">
+				<foreignObject
+					x="33"
+					y="190"
+					width="80%"
+					height="100%"
+				>
 					<div class="uppercase font-semibold z-20">
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-2xl">Robert</div>
-						<div in:fade={{ delay: 500, duration: 1000 }} class="text-2xl">Zioltkowski</div>
+						<div
+							in:fade={{ delay: 500, duration: 1000 }}
+							class="text-2xl"
+						>
+							Robert
+						</div>
+						<div
+							in:fade={{ delay: 500, duration: 1000 }}
+							class="text-2xl"
+						>
+							Zioltkowski
+						</div>
 						<Typewriter
 							mode="loop"
 							interval="130"

@@ -3,7 +3,6 @@
 	export let blogImage;
 	export let blogDate;
 	export let blogSlug;
-	console.log('URL', blogImage);
 </script>
 
 <a href={`/blog/${blogSlug}`}>
