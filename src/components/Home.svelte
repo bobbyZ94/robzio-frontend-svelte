@@ -60,7 +60,7 @@
 							--cursor-color="#f9fafb"
 							--cursor-width="2px"
 						>
-							<div class="mt-5 ml-5 text-3xl italic font-light text-center">Webdevelopment</div>
+							<div class="mt-5 ml-5 text-3xl italic font-light text-center">Webdev</div>
 							<div class="mt-5 ml-5 text-3xl italic font-light text-center">Webdesign</div>
 							<div class="mt-5 ml-5 text-3xl italic font-light text-center">Frontend</div>
 							<div class="mt-5 ml-5 text-3xl italic font-light text-center">Backend</div>

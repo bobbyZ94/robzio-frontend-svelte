@@ -6,7 +6,7 @@
 	<a href="/#about">
 		<div
 			transition:scale|local={{ delay: 100, duration: 1000, start: 0, opacity: 0 }}
-			class="bg-zinc-900 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
+			class="bg-zinc-900 hover:scale-105 ease-in-out duration-300 w-20 h-20 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
 		>
 			About
 		</div>
