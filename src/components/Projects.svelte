@@ -2,6 +2,7 @@
 	import { env } from '$env/dynamic/public';
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
+	import { swipe } from 'svelte-gestures';
 	import ChevronLeft from 'carbon-icons-svelte/lib/ChevronLeft.svelte';
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import ProjectCard from './ProjectCard.svelte';
@@ -51,10 +52,30 @@
 			easing: linear
 		});
 	};
+
+	// touch swipe gesture
+	let direction;
+
+	function touchSwipeHandler(event) {
+		direction = event.detail.direction;
+		if (direction === 'left') {
+			flyDirection = 'right';
+			if (currentPage === maxNumberOfPages) currentPage = 1;
+			else currentPage++;
+		} else {
+			flyDirection = 'left';
+			if (currentPage === 1) currentPage = maxNumberOfPages;
+			else currentPage--;
+		}
+	}
 </script>
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
-	<div class="z-20 flex items-center gap-10 justify-center">
+	<div
+		use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
+		on:swipe={touchSwipeHandler}
+		class="z-20 flex items-center gap-10 justify-center"
+	>
 		{#each projects.docs
 			.sort((a, b) => new Date(b.date) - new Date(a.date))
 			.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}

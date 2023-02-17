@@ -2,6 +2,7 @@
 	import { env } from '$env/dynamic/public';
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
+	import { swipe } from 'svelte-gestures';
 	import ChevronLeft from 'carbon-icons-svelte/lib/ChevronLeft.svelte';
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import BlogCard from './BlogCard.svelte';
@@ -38,6 +39,22 @@
 			easing: linear
 		});
 	};
+
+	// touch swipe gesture
+	let direction;
+
+	function touchSwipeHandler(event) {
+		direction = event.detail.direction;
+		if (direction === 'left') {
+			flyDirection = 'right';
+			if (currentPage === maxNumberOfPages) currentPage = 1;
+			else currentPage++;
+		} else {
+			flyDirection = 'left';
+			if (currentPage === 1) currentPage = maxNumberOfPages;
+			else currentPage--;
+		}
+	}
 </script>
 
 <!-- track innerWidth of screen in pixels  -->
@@ -47,6 +64,8 @@
 	<div class="overflow-hidden fixContainerTransition rounded-xl max-w-7xl">
 		{#key currentPage}
 			<div
+				use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
+				on:swipe={touchSwipeHandler}
 				in:myIn|local
 				out:myOut|local
 				class="z-20 flex flex-wrap items-center justify-center gap-10 fixItemTransition"

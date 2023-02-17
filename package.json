@@ -36,6 +36,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "escape-html": "^1.0.3",
-    "slate": "^0.90.0"
+    "slate": "^0.90.0",
+    "svelte-gestures": "^1.4.1"
   }
 }
