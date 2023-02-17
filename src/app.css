@@ -19,6 +19,11 @@
     stroke-linecap: round;
     fill: transparent;
   }
+
+  br {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
 }
 
 @layer utilities {
