@@ -66,7 +66,10 @@
 				<div class="opacity-40 text-[16vw] select-none">PROJECTS</div>
 			</div>
 		{/if}
-		<Projects projects={data.projects} {projectsIsInView} />
+		<Projects
+			projects={data.projects}
+			{projectsIsInView}
+		/>
 	</div>
 
 	<div

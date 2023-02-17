@@ -16,7 +16,7 @@ const authorizationHeader = {
 export async function load({ params, fetch }) {
   const blogEntry = await fetch(`${env.PAYLOADCMS_URL}/api/blog?where[slug][equals]=${params.slug}`, {
     method: 'GET',
-    authorizationHeader,
+    headers: authorizationHeader
   })
   return {
     blogEntry: blogEntry.json(),

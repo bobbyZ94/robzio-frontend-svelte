@@ -76,7 +76,7 @@
 		on:swipe={touchSwipeHandler}
 		class="z-20 flex items-center gap-10 justify-center"
 	>
-		{#each projects.docs
+		{#each projects?.docs
 			.sort((a, b) => new Date(b.date) - new Date(a.date))
 			.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
 			<div
