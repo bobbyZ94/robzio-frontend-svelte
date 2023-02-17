@@ -57,6 +57,7 @@
 	let direction;
 
 	function touchSwipeHandler(event) {
+		clearInterval(intervalID);
 		direction = event.detail.direction;
 		if (direction === 'left') {
 			flyDirection = 'right';
@@ -72,7 +73,7 @@
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
 	<div
-		use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
+		use:swipe={{ timeframe: 1000, minSwipeDistance: 50, touchAction: 'pan-y' }}
 		on:swipe={touchSwipeHandler}
 		class="z-20 flex items-center gap-10 justify-center"
 	>
