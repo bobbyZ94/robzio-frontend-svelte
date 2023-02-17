@@ -6,9 +6,17 @@
 	import ChevronLeft from 'carbon-icons-svelte/lib/ChevronLeft.svelte';
 	import ChevronRight from 'carbon-icons-svelte/lib/ChevronRight.svelte';
 	import ProjectCard from './ProjectCard.svelte';
+
 	export let projects;
 	export let projectsIsInView;
+
+	const projectsCount = projects.docs.length;
+	const projectsPerPage = 1;
+	const maxNumberOfPages = Math.ceil(projectsCount / projectsPerPage);
+	let currentPage = 1;
+
 	// project slider autoplay feature
+	let flyDirection = 'right';
 	const autoPlayInterval = 8000;
 	let isPlaying = false;
 	let intervalID;
@@ -21,16 +29,13 @@
 			}
 		}, autoPlayInterval);
 	}
+
 	// reactive binding, so autoPlay only start when projectsIsInView changes
 	$: if (projectsIsInView && !isPlaying) {
 		autoPlay(autoPlayInterval);
 		isPlaying = true;
 	}
-	const projectsCount = projects.docs.length;
-	const projectsPerPage = 1;
-	const maxNumberOfPages = Math.ceil(projectsCount / projectsPerPage);
-	let currentPage = 1;
-	let flyDirection = 'right';
+
 	// custom in/out transition functions to ensure that component gets updated flyDirection asap
 	const myIn = (el) => {
 		return fly(el, {
@@ -55,7 +60,6 @@
 
 	// touch swipe gesture
 	let direction;
-
 	function touchSwipeHandler(event) {
 		clearInterval(intervalID);
 		direction = event.detail.direction;

@@ -1,5 +1,5 @@
 <script>
-	import Highlight, { LineNumbers } from 'svelte-highlight';
+	import Highlight, { LineNumbers, HighlightSvelte } from 'svelte-highlight';
 	import javascript from 'svelte-highlight/languages/javascript';
 	import typescript from 'svelte-highlight/languages/typescript';
 	import css from 'svelte-highlight/languages/css';
@@ -76,6 +76,16 @@
 							hideBorder
 						/>
 					</Highlight>
+				{:else if block.blockType === 'code svelte'}
+					<HighlightSvelte
+						code={block.code}
+						let:highlighted
+					>
+						<LineNumbers
+							{highlighted}
+							hideBorder
+						/>
+					</HighlightSvelte>
 				{/if}
 			{/each}
 		{/each}
