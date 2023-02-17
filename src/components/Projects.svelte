@@ -55,7 +55,9 @@
 
 <div class="w-full h-screen flex flex-col justify-center items-center">
 	<div class="z-20 flex items-center gap-10 justify-center">
-		{#each projects.docs.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
+		{#each projects.docs
+			.sort((a, b) => new Date(b.date) - new Date(a.date))
+			.slice(projectsPerPage * currentPage - projectsPerPage, projectsPerPage * currentPage) as project}
 			<div
 				class="fixContainerTransition rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out"
 			>

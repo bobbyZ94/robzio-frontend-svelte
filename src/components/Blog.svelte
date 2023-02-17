@@ -51,7 +51,9 @@
 				out:myOut|local
 				class="z-20 flex flex-wrap items-center justify-center gap-10 fixItemTransition"
 			>
-				{#each blog.docs.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
+				{#each blog.docs
+					.sort((a, b) => new Date(b.date) - new Date(a.date))
+					.slice(blogEntriesPerPage * currentPage - blogEntriesPerPage, blogEntriesPerPage * currentPage) as blogEntry}
 					<div class="rounded-xl overflow-hidden hover:scale-[1.02] duration-300 ease-in-out">
 						<BlogCard
 							blogTitle={blogEntry.title}

@@ -1,14 +1,25 @@
 <script>
 	import '../app.css';
 	import SideNavbar from '../components/SideNavbar.svelte';
-	import MobileBackButton from '../components/MobileBackButton.svelte';
+	import NavArrow from '../components/NavArrow.svelte';
 	import Footer from '../components/Footer.svelte';
-	import { showNavbar } from '../lib/stores';
+	import { showNavbar, currentScrollY } from '../lib/stores';
+
 	let showNavbarValue;
 	showNavbar.subscribe((value) => {
 		showNavbarValue = value;
 	});
+
+	$: scrollY = 0;
+	$: currentScrollY.set(scrollY);
 </script>
+
+<!--
+  Rotates Nav Arrow on mobile and changes nav method according to scrollY pos.
+  Binding with window method scrollY had to be done inside top level component like +layout, instead of inside NavArrow.
+  There was a weird scrolling issue that may be connected to the scroll-behavior: smooth.
+-->
+<svelte:window bind:scrollY />
 
 <div
 	class="flex flex-col items-center w-full min-h-screen bg-zinc-900 text-gray-50 font-montserrat"
@@ -18,7 +29,7 @@
 			<SideNavbar />
 		</div>
 		<div class="fixed top-0 right-0 z-30 lg:hidden">
-			<MobileBackButton />
+			<NavArrow />
 		</div>
 	{/if}
 	<div class="flex flex-grow w-full h-full">

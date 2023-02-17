@@ -70,7 +70,7 @@
 				</foreignObject>
 			</svg>
 			<div class="flex flex-col gap-5 ml-5 z-20">
-				<a href="/#about">
+				<a href="#about">
 					<div class="-translate-x-10 z-20">
 						<div
 							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
@@ -80,7 +80,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="/#projects">
+				<a href="#projects">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 						class="z-20 hover:scale-105 ease-in-out duration-300 w-24 h-24 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
@@ -88,7 +88,7 @@
 						Projects
 					</div>
 				</a>
-				<a href="/#blog">
+				<a href="#blog">
 					<div
 						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 						class="z-20 hover:scale-105 ease-in-out duration-300 w-24 h-24 border-[1px] border-gray-50 rounded-full flex items-center justify-center"
@@ -96,7 +96,7 @@
 						Blog
 					</div>
 				</a>
-				<a href="/#contact">
+				<a href="#contact">
 					<div class="z-20 -translate-x-10">
 						<div
 							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
