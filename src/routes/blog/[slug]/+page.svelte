@@ -1,4 +1,5 @@
 <script>
+	import { env } from '$env/dynamic/public';
 	import Highlight, { LineNumbers, HighlightSvelte } from 'svelte-highlight';
 	import javascript from 'svelte-highlight/languages/javascript';
 	import typescript from 'svelte-highlight/languages/typescript';
@@ -18,7 +19,8 @@
 		{ languageName: 'html', languageHighlite: xml },
 		{ languageName: 'css', languageHighlite: css },
 		{ languageName: 'javascript', languageHighlite: javascript },
-		{ languageName: 'typescript', languageHighlite: typescript }
+		{ languageName: 'typescript', languageHighlite: typescript },
+		{ languageName: 'svelte' }
 	];
 
 	async function saveToClipboard(code) {
@@ -50,6 +52,13 @@
 		<div class="mb-10 text-2xl font-semibold md:text-5xl">
 			<span class="bg-half-color">{blogEntry.title}</span>
 		</div>
+		<div class="h-[10rem] md:h-[20rem]">
+			<img
+				src={`${env.PUBLIC_PAYLOADCMS_URL}${blogEntry.image.url}`}
+				alt={blogEntry.image.title}
+				class="w-full h-full object-cover"
+			/>
+		</div>
 		{#each blogEntry.contentBlocks as block}
 			{#if block.blockType === 'richText'}
 				{@html serialize(new Object({ children: block.text }))}
@@ -66,26 +75,28 @@
 							<CopyFile size={24} />
 						</div>
 					</div>
-					<Highlight
-						language={language.languageHighlite}
-						code={block.code}
-						let:highlighted
-					>
-						<LineNumbers
-							{highlighted}
-							hideBorder
-						/>
-					</Highlight>
-				{:else if block.blockType === 'code svelte'}
-					<HighlightSvelte
-						code={block.code}
-						let:highlighted
-					>
-						<LineNumbers
-							{highlighted}
-							hideBorder
-						/>
-					</HighlightSvelte>
+					{#if block.blockType === 'code svelte'}
+						<HighlightSvelte
+							code={block.code}
+							let:highlighted
+						>
+							<LineNumbers
+								{highlighted}
+								hideBorder
+							/>
+						</HighlightSvelte>
+					{:else}
+						<Highlight
+							language={language.languageHighlite}
+							code={block.code}
+							let:highlighted
+						>
+							<LineNumbers
+								{highlighted}
+								hideBorder
+							/>
+						</Highlight>
+					{/if}
 				{/if}
 			{/each}
 		{/each}
