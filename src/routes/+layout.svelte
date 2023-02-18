@@ -5,6 +5,8 @@
 	import Footer from '../components/Footer.svelte';
 	import { showNavbar, currentScrollY } from '../lib/stores';
 
+	export let data;
+
 	let showNavbarValue;
 	showNavbar.subscribe((value) => {
 		showNavbarValue = value;
@@ -13,6 +15,27 @@
 	$: scrollY = 0;
 	$: currentScrollY.set(scrollY);
 </script>
+
+<!--SEO-->
+<svelte:head>
+	<title>Robzio - Frontpage</title>
+	<meta
+		name="description"
+		content={data.settings.description}
+	/>
+	<meta
+		name="author"
+		content={data.settings.author}
+	/>
+	<meta
+		name="keywords"
+		content={data.settings.keywords}
+	/>
+	<meta
+		name="language"
+		content="en"
+	/>
+</svelte:head>
 
 <!--
   Rotates Nav Arrow on mobile and changes nav method according to scrollY pos.

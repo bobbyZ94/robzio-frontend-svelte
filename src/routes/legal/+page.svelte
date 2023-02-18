@@ -8,6 +8,10 @@
 	showNavbar.set(true);
 </script>
 
+<svelte:head>
+	<title>Robzio - Legal</title>
+</svelte:head>
+
 <div class="flex-grow items-center justify-center flex my-20 overflow-hidden">
 	<div>
 		<div

@@ -33,6 +33,7 @@
 
 <svelte:head>
 	{@html atomOneDark}
+	<title>Robzio - {blogEntry.title}</title>
 </svelte:head>
 
 <div class="flex items-center justify-center flex-grow my-20 overflow-hidden">
