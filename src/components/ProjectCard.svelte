@@ -14,7 +14,11 @@
 		class="bg-zinc-800 w-[18rem] md:w-[45rem] md:h-[34rem] h-[25rem] flex flex-col rounded-xl overflow-hidden opacity-95"
 	>
 		<div class="w-[18rem] md:w-[45rem] md:h-[22rem] h-[15rem]">
-			<img src={projectImage} alt={projectTitle} class="w-full h-full object-cover" />
+			<img
+				src={projectImage}
+				alt={projectTitle}
+				class="w-full h-full object-cover"
+			/>
 		</div>
 		<div class="p-5 flex flex-col justify-between flex-grow">
 			<div class="md:text-3xl text-xl font-semibold text-center">{projectTitle}</div>
