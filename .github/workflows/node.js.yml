@@ -23,11 +23,11 @@ jobs:
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: robzio.com
+        host: 212.87.214.155
         port: 1500
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
           cd /home/node/robzio-frontend-svelte
           git pull
