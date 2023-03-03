@@ -47,7 +47,7 @@ export async function GET() {
           (blogEntry) =>
             `
       <url>
-        <loc>${env.SITE_URL}/${blogEntry.slug}</loc>
+        <loc>${env.SITE_URL}/blog/${blogEntry.slug}</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
       </url>
