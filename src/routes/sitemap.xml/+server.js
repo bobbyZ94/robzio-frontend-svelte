@@ -25,7 +25,19 @@ export async function GET() {
 
       <!-- this is where all the urls go -->
        <url>
-        <loc>https://robzio.com</loc> <!-- homepage -->
+        <loc>${env.SITE_URL}</loc> 
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+      </url>
+
+      <url>
+        <loc>${env.SITE_URL}/impressum</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+      </url>
+
+      <url>
+        <loc>${env.SITE_URL}/legal</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
       </url>
@@ -35,7 +47,7 @@ export async function GET() {
           (blogEntry) =>
             `
       <url>
-        <loc>${env.PAYLOADCMS_URL}/${blogEntry.slug}</loc>
+        <loc>${env.SITE_URL}/${blogEntry.slug}</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
       </url>
