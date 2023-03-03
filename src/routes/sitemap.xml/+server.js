@@ -35,7 +35,7 @@ export async function GET() {
           (blogEntry) =>
             `
       <url>
-        <loc>${env.PUBLIC_PAYLOADCMS_URL}/${blogEntry.slug}</loc>
+        <loc>${env.PAYLOADCMS_URL}/${blogEntry.slug}</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
       </url>
