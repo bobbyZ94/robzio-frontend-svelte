@@ -34,6 +34,28 @@
 <svelte:head>
 	{@html atomOneDark}
 	<title>Robzio - {blogEntry.title}</title>
+	<meta
+		name="description"
+		content={blogEntry.title}
+	/>
+	<script type="application/ld+json">
+    {
+      "@context": "https://robzio.com",
+      "@type": "Article",
+      "headline": blogEntry.title,
+      "image": [
+        `${env.PUBLIC_PAYLOADCMS_URL}${blogEntry.image.url}`,
+       ],
+      "datePublished": new Date(blogEntry.date),
+      "dateModified": new Date(blogEntry.date)",
+      "author": [{
+          "@type": "Person",
+          "name": "Robert Zioltkowski",
+          "url": "https://robzio.com"
+        },
+      ]
+    }
+	</script>
 </svelte:head>
 
 <div class="flex items-center justify-center flex-grow my-20 overflow-hidden">

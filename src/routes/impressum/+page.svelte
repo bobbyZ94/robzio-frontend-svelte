@@ -9,6 +9,10 @@
 
 <svelte:head>
 	<title>Robzio - Impressum</title>
+	<meta
+		name="description"
+		content="Impressum Page"
+	/>
 </svelte:head>
 
 <div class="flex-grow items-center justify-center flex h-screen">

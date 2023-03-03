@@ -10,6 +10,10 @@
 
 <svelte:head>
 	<title>Robzio - Legal</title>
+	<meta
+		name="description"
+		content="Legal Page"
+	/>
 </svelte:head>
 
 <div class="flex-grow items-center justify-center flex my-20 overflow-hidden">
