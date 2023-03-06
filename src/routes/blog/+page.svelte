@@ -17,7 +17,7 @@
 	/>
 </svelte:head>
 
-<div class="flex-grow items-center justify-center flex h-screen">
+<div class="items-center justify-center flex h-screen w-full my-[10rem] p-10 mt-20">
 	<div>
 		<div
 			in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
@@ -28,9 +28,9 @@
 		</div>
 	</div>
 
-	<div class="z-20 opacity-95">
+	<div class="z-20 opacity-95 max-w-5xl">
 		<div
-			class="flex flex-col items-center justify-center bg-zinc-800 rounded-xl p-10 gap-5 md:text-xl text-sm max-w-5xl"
+			class="flex flex-col items-center justify-center bg-zinc-800 rounded-xl p-10 gap-5 md:text-xl text-sm"
 		>
 			<div class="text-xl md:text-2xl font-semibold">Blog</div>
 			<div>

@@ -115,23 +115,13 @@
 					height="100%"
 				>
 					<div class="uppercase font-semibold z-20">
-						<div
-							in:fade={{ delay: 500, duration: 1000 }}
-							class="text-2xl"
-						>
-							Robert
-						</div>
-						<div
-							in:fade={{ delay: 500, duration: 1000 }}
-							class="text-2xl"
-						>
-							Zioltkowski
-						</div>
+						<div class="text-2xl">Robert</div>
+						<div class="text-2xl">Zioltkowski</div>
 						<Typewriter
 							mode="loop"
 							interval="130"
 							unwriteInterval="50"
-							delay="5000"
+							delay="2000"
 							--cursor-color="#f9fafb"
 							--cursor-width="2px"
 						>
@@ -148,7 +138,6 @@
 				<a href="/#about">
 					<div class="-translate-x-10 z-20">
 						<div
-							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 						>
 							About
@@ -157,7 +146,6 @@
 				</a>
 				<a href="/#projects">
 					<div
-						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 					>
 						Projects
@@ -165,7 +153,6 @@
 				</a>
 				<a href="/#blog">
 					<div
-						in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 						class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 					>
 						Blog
@@ -174,7 +161,6 @@
 				<a href="/#contact">
 					<div class="z-20 -translate-x-10">
 						<div
-							in:scale={{ delay: 3000, duration: 2000, start: 0, opacity: 0 }}
 							class="z-20 hover:scale-105 ease-in-out duration-300 w-16 h-16 border-[1px] border-gray-50 rounded-full flex items-center justify-center bg-zinc-900"
 						>
 							Contact
