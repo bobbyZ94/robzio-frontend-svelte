@@ -51,7 +51,7 @@
 		<div class="hidden lg:block fixed top-[30%] right-20 z-30">
 			<SideNavbar />
 		</div>
-		<div class="fixed top-0 right-0 z-30 lg:hidden translate-x-2">
+		<div class="fixed top-0 right-0 z-30 lg:hidden">
 			<NavArrow />
 		</div>
 	{/if}
