@@ -9,7 +9,7 @@
 <svelte:window bind:innerWidth />
 
 <div class="flex flex-col items-center justify-center w-full h-screen">
-	<div class="max-w-7xl flex gap-16 z-20 flex-col xl:flex-row">
+	<div class="max-w-7xl flex gap-8 lg:gap-16 z-20 flex-col xl:flex-row">
 		{#each blog?.docs
 			.sort((a, b) => new Date(b.date) - new Date(a.date))
 			.slice(0, innerWidth < 1536 ? 2 : 3) as blogEntry}
