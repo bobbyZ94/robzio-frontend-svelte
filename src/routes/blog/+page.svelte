@@ -20,7 +20,6 @@
 <div class="items-center justify-center flex h-screen w-full my-[10rem] p-10 mt-20">
 	<div
 		in:fly|local={{ duration: 2000, x: -2000, y: 0, delay: 500 }}
-		out:fly|local={{ duration: 2000, x: 2000, y: 0 }}
 		class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-10"
 	>
 		<div class="opacity-40 text-[25vw] select-none">BLOG</div>
