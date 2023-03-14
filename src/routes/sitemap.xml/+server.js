@@ -3,7 +3,7 @@ import { env } from '$env/dynamic/private';
 export async function GET() {
   const authorizationHeader = {
     'Content-Type': 'application/json',
-    authorization: `users API-Key ${env.PAYLOADCMS_API_KEY}` 
+    authorization: `users API-Key ${env.PAYLOADCMS_API_KEY}`
   }
 
   const blog = await fetch(`${env.PAYLOADCMS_URL}/api/blog?where[_status][equals]=published`, {
@@ -24,37 +24,45 @@ export async function GET() {
     >
 
       <!-- this is where all the urls go -->
-       <url>
+
+      <url>
         <loc>${env.SITE_URL}</loc> 
         <changefreq>daily</changefreq>
-        <priority>0.7</priority>
+        <priority>1.0</priority>
       </url>
 
       <url>
-        <loc>${env.SITE_URL}/impressum</loc>
+        <loc>${env.SITE_URL}/blog</loc>
         <changefreq>daily</changefreq>
-        <priority>0.7</priority>
+        <priority>0.9</priority>
       </url>
-
-      <url>
-        <loc>${env.SITE_URL}/legal</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-      </url>
-
+      
       ${blog.docs
         .map(
           (blogEntry) =>
             `
-      <url>
-        <loc>${env.SITE_URL}/blog/${blogEntry.slug}</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-      </url>
-      `
+            <url>
+            <loc>${env.SITE_URL}/blog/${blogEntry.slug}</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.8</priority>
+            </url>
+            `
         )
         .join("")}
-      <!-- this is where all the urls go -->
+        
+        <url>
+          <loc>${env.SITE_URL}/impressum</loc>
+          <changefreq>daily</changefreq>
+          <priority>0.2</priority>
+        </url>
+        
+        <url>
+          <loc>${env.SITE_URL}/legal</loc>
+          <changefreq>daily</changefreq>
+          <priority>0.2</priority>
+        </url>
+
+        <!-- this is where all the urls go -->
 
     </urlset>`.trim(),
     {
