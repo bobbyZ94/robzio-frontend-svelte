@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import { page } from '$app/stores';
 	import SideNavbar from '../components/SideNavbar.svelte';
 	import NavArrow from '../components/NavArrow.svelte';
 	import Footer from '../components/Footer.svelte';
@@ -34,6 +35,10 @@
 	<meta
 		name="language"
 		content="en"
+	/>
+	<link
+		rel="canonical"
+		href={$page.url.href}
 	/>
 </svelte:head>
 
