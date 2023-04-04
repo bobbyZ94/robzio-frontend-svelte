@@ -36,9 +36,11 @@
 		name="language"
 		content="en"
 	/>
+
+	<!-- Canonical link url of current page to show google that website is original; Google compares to url without www domain, so replace is needed -->
 	<link
 		rel="canonical"
-		href={$page.url.href}
+		href={$page.url.href.replace('www.', '')}
 	/>
 </svelte:head>
 
